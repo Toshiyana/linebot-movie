@@ -52,9 +52,60 @@ def get_movies():
         date = date.get_text()
         dates.append(date)
 
-    return 0
+    movie_info = [names, reviews, dates]
+
+    return movie_info
 
 
 if __name__ == '__main__':
-    # print(get_movies())
-    get_movies()
+    movie_info = get_movies()
+    name = movie_info[0]
+    review = movie_info[1]
+    date = movie_info[2]
+
+    # print(name)
+    # print(review)
+    # print(date)
+    txt = \
+    "1.\n" + \
+    "タイトル： " + name[0] + "\n" + \
+    "評価： " + review[0] + "\n" + \
+    "公開日： " + date[0] + "\n\n" + \
+    "2.\n" + \
+    "タイトル： " + name[1] + "\n" + \
+    "評価： " + review[1] + "\n" + \
+    "公開日： " + date[1] + "\n\n" + \
+    "3.\n" + \
+    "タイトル： " + name[2] + "\n" + \
+    "評価： " + review[2] + "\n" + \
+    "公開日： " + date[2] + "\n\n" + \
+    "4.\n" + \
+    "タイトル： " + name[3] + "\n" + \
+    "評価： " + review[3] + "\n" + \
+    "公開日： " + date[3] + "\n\n" + \
+    "5.\n" + \
+    "タイトル： " + name[4] + "\n" + \
+    "評価： " + review[4] + "\n" + \
+    "公開日： " + date[4] + "\n\n" + \
+    "6.\n" + \
+    "タイトル： " + name[5] + "\n" + \
+    "評価： " + review[5] + "\n" + \
+    "公開日： " + date[5] + "\n\n" + \
+    "7.\n" + \
+    "タイトル： " + name[6] + "\n" + \
+    "評価： " + review[6] + "\n" + \
+    "公開日： " + date[6] + "\n\n" + \
+    "8.\n" + \
+    "タイトル： " + name[7] + "\n" + \
+    "評価： " + review[7] + "\n" + \
+    "公開日： " + date[7] + "\n\n" + \
+    "9.\n" + \
+    "タイトル： " + name[8] + "\n" + \
+    "評価： " + review[8] + "\n" + \
+    "公開日： " + date[8] + "\n\n" + \
+    "10.\n" + \
+    "タイトル： " + name[9] + "\n" + \
+    "評価： " + review[9] + "\n" + \
+    "公開日： " + date[9]
+
+    print(txt)
