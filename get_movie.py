@@ -18,7 +18,8 @@ def get_movies():
 
     # BeautifulSoup
     soup = BeautifulSoup(html, features='lxml')
-    # urlタグのBeautifulSoupインスタンスを取得
+    
+    week = soup.find('p', {'class': 'ranking-table-read'}).get_text()
     info = soup.find('table', {'class': 'ranking-table'})
     info = soup.find('tbody')
     # 映画名、評価、公開日のリスト
@@ -35,8 +36,7 @@ def get_movies():
         img = group.find('img').get(('data-src'))# 画像urlを取得
         url = name.find('a').get(('href'))
         url = "https://eiga.com" + url
-        print(url)
-
+        
         # reviewのvalの値はreviewによって異なる。OR検索し、リストで返す。
         review = group.find_all('p', class_=[
             'rating-star small val10'
@@ -62,11 +62,9 @@ def get_movies():
 
         detailed_urls.append(url)
 
-
-
     movie_info = [names, reviews, dates, images, detailed_urls]
 
-    return movie_info
+    return week, movie_info
 
 def get_txt_info(movie_info):
     name = movie_info[0]
@@ -118,7 +116,7 @@ def get_txt_info(movie_info):
     return txt_info
 
 if __name__ == '__main__':
-    movie_info = get_movies()
+    week, movie_info = get_movies()
     txt_movie = get_txt_info(movie_info)
 
-    # print(txt_movie)
+    print(week)
