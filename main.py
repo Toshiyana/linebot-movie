@@ -50,8 +50,8 @@ def callback():
 
 
 # handler.add(): 引数にlinebotのリクエストのイベントを指定
-@handler.add(MessageEvent)
-def handle_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
+@handler.add(MessageEvent, message=TextMessage)
+def response_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
     movie_info = get_movies()
 
     name = movie_info[0]
