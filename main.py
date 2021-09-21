@@ -1,4 +1,4 @@
-from get_movie import get_movies, get_txt_info
+from get_movie import get_movies
 
 from flask import Flask, request, abort
 
@@ -52,14 +52,15 @@ def callback():
 # handler.add(): 引数にlinebotのリクエストのイベントを指定
 @handler.add(MessageEvent, message=TextMessage)
 def response_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
-    week, movie_info = get_movies()
+    movie_info = get_movies()
+
+    week = movie_info[5]
 
     name = movie_info[0]
     review = movie_info[1]
     date = movie_info[2]
     img = movie_info[3]
     url = movie_info[4]
-
 
     notes = [
         CarouselColumn(
