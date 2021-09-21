@@ -120,13 +120,12 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
 
     line_bot_api.reply_message(
         event.reply_token,# イベントの応答に用いるトークン
-        [TextSendMessage(text=week),
+        [TextSendMessage(text=week),# 複数メッセージを返す場合、listに格納
         messages])
 
     # line_bot_api.reply_message(
     #     event.reply_token,# イベントの応答に用いるトークン
     #     messages=messages)
-# 多分、event = {MessageEvent, message}になっている
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
