@@ -52,7 +52,7 @@ def callback():
 # handler.add(): 引数にlinebotのリクエストのイベントを指定
 @handler.add(MessageEvent, message=TextMessage)
 def response_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
-    movie_info = get_movies()
+    week, movie_info = get_movies()
 
     name = movie_info[0]
     review = movie_info[1]
@@ -120,7 +120,11 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
     )
 
     line_bot_api.reply_message(
-        # event.reply_token,# イベントの応答に用いるトークン
+        event.reply_token,# イベントの応答に用いるトークン
+        messages=week)
+
+    line_bot_api.reply_message(
+        event.reply_token,# イベントの応答に用いるトークン
         messages=messages)
 # 多分、event = {MessageEvent, message}になっている
 
