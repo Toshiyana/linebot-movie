@@ -71,47 +71,47 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
             thumbnail_image_url = img[1],
             title = "2位：" + name[1],
             text = "評価：" + review[1] + "\n" + date[1],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[1]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[1]}]),
         CarouselColumn(
             thumbnail_image_url = img[2],
             title = "3位：" + name[2],
             text = "評価：" + review[2] + "\n" + date[2],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[2]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[2]}]),
         CarouselColumn(
             thumbnail_image_url = img[3],
             title = "4位：" + name[3],
             text = "評価：" + review[3] + "\n" + date[3],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[3]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[3]}]),
         CarouselColumn(
             thumbnail_image_url = img[4],
             title = "5位：" + name[4],
             text = "評価：" + review[4] + "\n" + date[4],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[4]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[4]}]),
         CarouselColumn(
             thumbnail_image_url = img[5],
             title = "6位：" + name[5],
             text = "評価：" + review[5] + "\n" + date[5],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[5]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[5]}]),
         CarouselColumn(
             thumbnail_image_url = img[6],
             title = "7位：" + name[6],
             text = "評価：" + review[6] + "\n" + date[6],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[6]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[6]}]),
         CarouselColumn(
             thumbnail_image_url = img[7],
             title = "8位：" + name[7],
             text = "評価：" + review[7] + "\n" + date[7],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[7]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[7]}]),
         CarouselColumn(
             thumbnail_image_url = img[8],
             title = "9位：" + name[8],
             text = "評価：" + review[8] + "\n" + date[8],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[8]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[8]}]),
         CarouselColumn(
             thumbnail_image_url = img[9],
             title = "10位：" + name[9],
             text = "評価：" + review[9] + "\n" + date[9],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[9]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[9]}]),
     ]
 
     messages = TemplateSendMessage(
@@ -120,7 +120,7 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
     )
 
     line_bot_api.reply_message(
-        event.reply_token,# イベントの応答に用いるトークン
+        # event.reply_token,# イベントの応答に用いるトークン
         messages=messages)
 # 多分、event = {MessageEvent, message}になっている
 
