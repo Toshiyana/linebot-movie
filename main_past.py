@@ -10,7 +10,7 @@ from linebot.exceptions import (
 )
 # linebot.modelsから処理したいイベントをimport
 from linebot.models import (
-    MessageEvent, TextMessage, TemplateSendMessage, TextSendMessage, CarouselTemplate, CarouselColumn
+    MessageEvent, TextMessage, TextSendMessage,
 )
 import os
 
@@ -53,40 +53,11 @@ def callback():
 @handler.add(MessageEvent)
 def handle_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
     movie_info = get_movies()
-
-    name = movie_info[0]
-    review = movie_info[1]
-    date = movie_info[2]
-    img = movie_info[3]
-    url = movie_info[4]
-
-
-    notes = [
-        CarouselColumn(
-            thumbnail_image_url = img[0],
-            title = name[0],
-            text = review[0],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[0]}]),
-        CarouselColumn(
-            thumbnail_image_url = img[1],
-            title = name[1],
-            text = review[1],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[1]}]),
-        CarouselColumn(
-            thumbnail_image_url = img[2],
-            title = name[2],
-            text = review[2],
-            actions = [{"type": "message", "label": "詳しく見る", "text": url[2]}]),
-    ]
-
-    messages = TemplateSendMessage(
-        alt_text = 'template',
-        template = CarouselTemplate(columns=notes),
-    )
+    movie_txt = get_txt_info(movie_info)
 
     line_bot_api.reply_message(
         event.reply_token,# イベントの応答に用いるトークン
-        TextSendMessage(messages=messages))
+        TextSendMessage(text=movie_txt))
 # 多分、event = {MessageEvent, message}になっている
 
 if __name__ == "__main__":

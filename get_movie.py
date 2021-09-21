@@ -25,11 +25,17 @@ def get_movies():
     names = []
     reviews = []
     dates = []
+    images = []
+    detailed_urls = []
 
     for group in info.find_all('tr'): # find_all: 合致する全てのタグのインスタンスをreturn
 
         name = group.find('h2', {'class': 'title'})
         date = group.find('small', {'class': 'time'})
+        img = group.find('img').get(('data-src'))# 画像urlを取得
+        url = name.find('a').get(('href'))
+        url = "https://eiga.com" + url
+        print(url)
 
         # reviewのvalの値はreviewによって異なる。OR検索し、リストで返す。
         review = group.find_all('p', class_=[
@@ -52,60 +58,67 @@ def get_movies():
         date = date.get_text()
         dates.append(date)
 
-    movie_info = [names, reviews, dates]
+        images.append(img)
+
+        detailed_urls.append(url)
+
+
+
+    movie_info = [names, reviews, dates, images, detailed_urls]
 
     return movie_info
 
-
-if __name__ == '__main__':
-    movie_info = get_movies()
+def get_txt_info(movie_info):
     name = movie_info[0]
     review = movie_info[1]
     date = movie_info[2]
 
-    # print(name)
-    # print(review)
-    # print(date)
-    txt = \
+    txt_info = \
     "1.\n" + \
     "タイトル： " + name[0] + "\n" + \
     "評価： " + review[0] + "\n" + \
-    "公開日： " + date[0] + "\n\n" + \
+    date[0] + "\n\n" + \
     "2.\n" + \
     "タイトル： " + name[1] + "\n" + \
     "評価： " + review[1] + "\n" + \
-    "公開日： " + date[1] + "\n\n" + \
+    date[1] + "\n\n" + \
     "3.\n" + \
     "タイトル： " + name[2] + "\n" + \
     "評価： " + review[2] + "\n" + \
-    "公開日： " + date[2] + "\n\n" + \
+    date[2] + "\n\n" + \
     "4.\n" + \
     "タイトル： " + name[3] + "\n" + \
     "評価： " + review[3] + "\n" + \
-    "公開日： " + date[3] + "\n\n" + \
+    date[3] + "\n\n" + \
     "5.\n" + \
     "タイトル： " + name[4] + "\n" + \
     "評価： " + review[4] + "\n" + \
-    "公開日： " + date[4] + "\n\n" + \
+    date[4] + "\n\n" + \
     "6.\n" + \
     "タイトル： " + name[5] + "\n" + \
     "評価： " + review[5] + "\n" + \
-    "公開日： " + date[5] + "\n\n" + \
+    date[5] + "\n\n" + \
     "7.\n" + \
     "タイトル： " + name[6] + "\n" + \
     "評価： " + review[6] + "\n" + \
-    "公開日： " + date[6] + "\n\n" + \
+    date[6] + "\n\n" + \
     "8.\n" + \
     "タイトル： " + name[7] + "\n" + \
     "評価： " + review[7] + "\n" + \
-    "公開日： " + date[7] + "\n\n" + \
+    date[7] + "\n\n" + \
     "9.\n" + \
     "タイトル： " + name[8] + "\n" + \
     "評価： " + review[8] + "\n" + \
-    "公開日： " + date[8] + "\n\n" + \
+    date[8] + "\n\n" + \
     "10.\n" + \
     "タイトル： " + name[9] + "\n" + \
     "評価： " + review[9] + "\n" + \
-    "公開日： " + date[9]
+    date[9]
 
-    print(txt)
+    return txt_info
+
+if __name__ == '__main__':
+    movie_info = get_movies()
+    txt_movie = get_txt_info(movie_info)
+
+    # print(txt_movie)
