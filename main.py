@@ -120,7 +120,8 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
 
     line_bot_api.reply_message(
         event.reply_token,# イベントの応答に用いるトークン
-        TextSendMessage(text=week))
+        TextSendMessage(text=week),
+        messages=messages)
 
     line_bot_api.reply_message(
         event.reply_token,# イベントの応答に用いるトークン
