@@ -66,7 +66,7 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
             thumbnail_image_url = img[0],
             title = "1位：" + name[0],
             text = "評価：" + review[0] + "\n" + date[0],
-            actions = [{"type": "uri", "label": "詳しく見る", "text": url[0]}]),
+            actions = [{"type": "uri", "label": "詳しく見る", "uri": url[0]}]),
         CarouselColumn(
             thumbnail_image_url = img[1],
             title = "2位：" + name[1],
