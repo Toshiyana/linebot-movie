@@ -63,17 +63,17 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
 
     notes = [
         CarouselColumn(
-            #thumbnail_image_url = img[0],
+            thumbnail_image_url = img[0],
             title = name[0],
             text = review[0],
             actions = [{"type": "message", "label": "詳しく見る", "text": url[0]}]),
         CarouselColumn(
-            #thumbnail_image_url = img[1],
+            thumbnail_image_url = img[1],
             title = name[1],
             text = review[1],
             actions = [{"type": "message", "label": "詳しく見る", "text": url[1]}]),
         CarouselColumn(
-            #thumbnail_image_url = img[2],
+            thumbnail_image_url = img[2],
             title = name[2],
             text = review[2],
             actions = [{"type": "message", "label": "詳しく見る", "text": url[2]}]),
@@ -86,7 +86,7 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
 
     line_bot_api.reply_message(
         event.reply_token,# イベントの応答に用いるトークン
-        TextSendMessage(messages=messages))
+        messages=messages)
 # 多分、event = {MessageEvent, message}になっている
 
 if __name__ == "__main__":
