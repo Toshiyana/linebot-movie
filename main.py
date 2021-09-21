@@ -123,9 +123,9 @@ def response_message(event):# event: LineMessagingAPIで定義されるリクエ
         TextSendMessage(text=week),
         messages=messages)
 
-    line_bot_api.reply_message(
-        event.reply_token,# イベントの応答に用いるトークン
-        messages=messages)
+    # line_bot_api.reply_message(
+    #     event.reply_token,# イベントの応答に用いるトークン
+    #     messages=messages)
 # 多分、event = {MessageEvent, message}になっている
 
 if __name__ == "__main__":
