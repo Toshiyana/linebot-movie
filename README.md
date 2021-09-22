@@ -5,4 +5,8 @@
 source .zshrc
 ```
 
-2. python main.py
+2. execution sheduler.py
+python sheduler.py
+
+sheduler.pyをherokuで定期実行することで、映画のアクセスランキングを配信。
+（映画情報は、映画.comからスクレイピングすることで取得。）
