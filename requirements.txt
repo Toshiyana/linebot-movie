@@ -1,5 +1,5 @@
-Flask==0.12.2
-line-bot-sdk==1.5.0
-beautifulsoup4
-urllib3
-lxml
+Flask==2.0.1
+line-bot-sdk==1.20.0
+beautifulsoup4==4.10.0
+urllib3==1.26.6
+lxml==4.6.3
