@@ -1,5 +1,3 @@
-from get_movie import get_movies, get_txt_info
-
 from flask import Flask, request, abort
 
 from linebot import (
@@ -52,8 +50,6 @@ def callback():
 # handler.add(): 引数にlinebotのリクエストのイベントを指定
 @handler.add(MessageEvent)
 def handle_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
-    movie_info = get_movies()
-    movie_txt = get_txt_info(movie_info)
 
     line_bot_api.reply_message(
         event.reply_token,# イベントの応答に用いるトークン
