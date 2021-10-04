@@ -1,3 +1,5 @@
+# lineのクライアント側でメッセージを送信したら、テキストで映画情報を返す
+
 from flask import Flask, request, abort
 
 from linebot import (
