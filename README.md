@@ -7,6 +7,12 @@
 * LineBot
 * You can recieve movie information once every Monday and when you follow this bot.
 
+## Requirement
+* Python 3.7.12
+* Flask 2.0.1
+* line-bot-sdk 1.20.0
+* beautifulsoup4 4.10.0
+
 ## Usage in Local Environment
 1. set token (not including .zshrc in github)
 ```
