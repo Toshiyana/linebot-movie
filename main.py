@@ -12,7 +12,7 @@ from linebot.exceptions import (
 )
 # linebot.modelsから処理したいイベントをimport
 from linebot.models import (
-    MessageEvent, TextMessage, TemplateSendMessage, TextSendMessage, CarouselTemplate, CarouselColumn
+    FollowEvent, TemplateSendMessage, TextSendMessage, CarouselTemplate, CarouselColumn
 )
 import os
 
@@ -52,9 +52,9 @@ def callback():
 
 
 # handler.add(): 引数にlinebotのリクエストのイベントを指定
-@handler.add(MessageEvent, message=TextMessage)
-def response_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
-    print(event)
+@handler.add(FollowEvent)
+def follow_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
+    # print(event)
 
     week, movie_info = get_movies()
 
