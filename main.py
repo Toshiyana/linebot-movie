@@ -54,9 +54,9 @@ def callback():
 # handler.add(): 引数にlinebotのリクエストのイベントを指定
 @handler.add(FollowEvent)# FollowEventをimportするのを忘れずに！
 def follow_message(event):# event: LineMessagingAPIで定義されるリクエストボディ
-    print(event)
+    # print(event)
 
-    if event.type == "follow":
+    if event.type == "follow":# フォロー時のみメッセージを送信
         week, movie_info = get_movies()
 
         name = movie_info[0]
