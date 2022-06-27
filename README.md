@@ -1,4 +1,5 @@
 # linebot-movie
+最新の映画ランキングとレビューを毎週通知してくれるLinebot
 
 ## Demo
 <img src="https://user-images.githubusercontent.com/58250083/134469328-aa1ab56d-0eae-41df-ad67-5e2f9c2512ec.jpg" width="50%">
