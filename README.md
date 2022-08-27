@@ -33,3 +33,9 @@ python sheduler.py
 sheduler.pyをherokuで定期実行することで、映画のアクセスランキングを配信。
 
 main.py: メッセージを送信した時に、映画情報を返す。
+
+## Heroku setting
+herokuでアプリをデプロイ後、heroku schedulerで以下のコマンドを設定。
+```
+[ $(date +%u) = 1 ] && python sheduler.py
+```
